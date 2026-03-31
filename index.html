@@ -7,28 +7,21 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f4f8;min-height:100vh}
-
-/* ── DESKTOP LAYOUT ── */
 .page{display:flex;height:100vh;gap:0}
-
 .left{width:300px;flex-shrink:0;background:#f0f4f8;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px}
 .right{flex:1;display:flex;flex-direction:column;background:#fff;min-width:0}
-
-/* cards */
 .card{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:20px}
 .brand-logo{width:58px;height:58px;border-radius:50%;background:#1D9E75;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;margin:0 auto 10px}
 .brand-name{font-size:17px;font-weight:700;color:#1a202c;text-align:center}
 .brand-sub{font-size:12px;color:#718096;text-align:center;margin-top:2px}
 .badge{display:inline-block;background:#E1F5EE;color:#0F6E56;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;margin-top:8px}
 .brand-card{text-align:center}
-
 .sec-title{font-size:11px;font-weight:600;color:#a0aec0;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px}
 .info-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .iicon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .ig{background:#E1F5EE}.ib{background:#EBF8FF}.ia{background:#FFFBEB}
 .ilabel{font-size:11px;color:#a0aec0}
 .ival{font-size:13px;font-weight:600;color:#2d3748}
-
 .subj-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .subj-name{font-size:13px;color:#2d3748;font-weight:500;width:72px;flex-shrink:0}
 .bar-wrap{flex:1;height:6px;background:#f0f4f8;border-radius:3px;overflow:hidden}
@@ -38,19 +31,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .total-row{display:flex;justify-content:space-between;align-items:center;padding-top:12px;margin-top:4px;border-top:1px solid #f0f4f8}
 .total-label{font-size:12px;color:#718096}
 .total-num{font-size:20px;font-weight:700;color:#1D9E75}
-
-/* CHAT */
 .chat-header{background:#1D9E75;padding:14px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0}
 .h-avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
 .h-name{font-size:15px;font-weight:600;color:#fff}
 .h-status{font-size:12px;color:rgba(255,255,255,0.8);margin-top:1px}
 .h-dot{display:inline-block;width:7px;height:7px;background:#4ade80;border-radius:50%;margin-right:4px}
 .h-tag{margin-left:auto;background:rgba(255,255,255,0.18);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;white-space:nowrap}
-
 .messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f8fafc}
 .messages::-webkit-scrollbar{width:4px}
 .messages::-webkit-scrollbar-thumb{background:#cbd5e0;border-radius:2px}
-
 .msg{max-width:78%;display:flex;flex-direction:column;gap:3px}
 .msg.bot{align-self:flex-start}
 .msg.user{align-self:flex-end}
@@ -59,16 +48,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .msg.user .bubble{background:#1D9E75;border-bottom-right-radius:4px;color:#fff}
 .msg-time{font-size:11px;color:#a0aec0}
 .msg.user .msg-time{text-align:right}
-
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .chip{font-size:12px;padding:5px 11px;border-radius:20px;border:1px solid #1D9E75;color:#0F6E56;background:#fff;cursor:pointer;font-family:inherit;transition:background 0.15s}
 .chip:hover{background:#E1F5EE}
-
 .typing-wrap{display:flex;gap:5px;padding:11px 15px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;border-bottom-left-radius:4px;width:fit-content}
 .dot{width:7px;height:7px;border-radius:50%;background:#cbd5e0;animation:blink 1.2s infinite}
 .dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
 @keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
-
 .input-area{padding:12px 14px;border-top:1px solid #e2e8f0;display:flex;gap:10px;align-items:center;background:#fff;flex-shrink:0}
 .input-wrap{flex:1;display:flex;align-items:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:24px;padding:0 14px;transition:border-color .2s}
 .input-wrap:focus-within{border-color:#1D9E75;background:#fff}
@@ -78,8 +64,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 #sbtn:hover{background:#0F6E56}
 #sbtn:active{transform:scale(0.94)}
 .footer{font-size:11px;color:#a0aec0;text-align:center;padding:6px 0;background:#fff;flex-shrink:0}
-
-/* ── MOBILE LAYOUT ── */
 @media(max-width:700px){
   body{background:#f0f4f8}
   .page{flex-direction:column;height:auto;min-height:100vh}
@@ -96,8 +80,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </head>
 <body>
 <div class="page">
-
-  <!-- LEFT -->
   <div class="left">
     <div class="card brand-card">
       <div class="brand-logo">P</div>
@@ -105,7 +87,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="brand-sub">Competishun — JEE 2028</div>
       <div><span class="badge">X → XI Moving Students</span></div>
     </div>
-
     <div class="card">
       <div class="sec-title">Batch Details</div>
       <div class="info-row"><div class="iicon ig">💰</div><div><div class="ilabel">Course Fee</div><div class="ival">₹26,900/-</div></div></div>
@@ -113,7 +94,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="info-row"><div class="iicon ia">🕐</div><div><div class="ilabel">Class Frequency</div><div class="ival">3–4 days/week</div></div></div>
       <div class="info-row"><div class="iicon ig">📞</div><div><div class="ilabel">Enquiry</div><div class="ival">8888-0000-21</div></div></div>
     </div>
-
     <div class="card">
       <div class="sec-title">Lecture Distribution</div>
       <div class="subj-row"><span class="subj-name">Physics</span><div class="bar-wrap"><div class="bar bp"></div></div><span class="subj-num">136</span></div>
@@ -123,7 +103,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     </div>
   </div>
 
-  <!-- RIGHT: CHAT -->
   <div class="right">
     <div class="chat-header">
       <div class="h-avatar">P</div>
@@ -133,12 +112,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       </div>
       <div class="h-tag">JEE 2028 Assistant</div>
     </div>
-
     <div class="messages" id="msgs"></div>
-
     <div class="input-area">
       <div class="input-wrap">
-        <input id="uinput" type="text" placeholder="Ask about fees, syllabus, schedule..."/>
+        <input id="uinput" type="text" placeholder="Ask about fees, syllabus, chapters..."/>
       </div>
       <button id="sbtn" onclick="send()">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -150,10 +127,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 
 <script>
 const KB={
-  fee:{k:['fee','fees','cost','price','charges','kitna','how much'],a:`The Pratham batch fee is ₹26,900/- (one-time).\n\nIncludes:\n• All recorded lectures\n• Study materials + DPPs\n• Tests with full analysis\n• Daily doubt sessions\n• Physical copy of materials`},
+  fee:{k:['fee','fees','cost','price','charges','kitna','how much'],a:`The Pratham batch fee is ₹26,900/- (one-time).\n\nIncludes everything:\n• All recorded lectures (397 total)\n• Study materials + DPPs\n• Tests with full analysis\n• Daily doubt sessions\n• Physical copy of materials`},
   access:{k:['access','validity','expire','till','until','kab tak','how long'],a:`Batch access is valid until 31st March 2027.\n\nOver a full year to learn, revise and practice at your own pace!`},
   schedule:{k:['schedule','class','timing','frequency','days','per week','time'],a:`Class schedule:\n• 3–4 days per week\n• Physics, Chemistry & Maths — 1.5 hrs each\n\nAll lectures are scheduled & recorded — watch anytime!`},
-  syllabus:{k:['syllabus','topic','chapter','subject','cover','pcm','physics','chemistry','maths'],a:`Complete XI JEE syllabus:\n\n⚡ Physics — 136 lectures\nMechanics, SHM, Fluids, Waves, Thermodynamics\n\n⚗️ Chemistry — 148 lectures\nPhysical, Inorganic & Organic\n\n📐 Maths — 113 lectures\nSets, Trigonometry, Sequences, Conic Sections\n\nTotal: 397 lectures`},
+
+  physics:{k:['physics lecture','physics chapter','physics topic','phy chapter','how many physics','physics me'],a:`Physics — 136 Total Lectures:\n\n• Mathematical Tools — 8\n• Rectilinear Motion — 5\n• Projectile Motion — 4\n• Relative Motion — 6\n• Newton's Laws of Motion — 11\n• Friction — 6\n• Work, Power & Energy — 9\n• Circular Motion — 10\n• Center of Mass — 11\n• Rigid Body Dynamics (RBD) — 15\n• Simple Harmonic Motion — 8\n• Fluid Mechanics — 8\n• Elasticity — 3\n• Viscosity — 2\n• Calorimetry — 2\n• Thermal Expansion — 2\n• KTG & Thermodynamics — 9\n• Wave on String — 8\n• Sound Wave — 6\n• Surface Tension — 3`},
+
+  chemistry:{k:['chemistry lecture','chemistry chapter','chemistry topic','chem chapter','how many chemistry','chemistry me'],a:`Chemistry — 148 Total Lectures:\n\nPhysical Chemistry:\n• Intro to Chemistry — 3\n• Atomic Structure — 16\n• Mole Concept — 8\n• Gaseous State — 12\n• Chemical Equilibrium — 6\n• Thermodynamics — 9\n• Thermochemistry — 3\n• Ionic Equilibrium — 10\n• Equivalent Concept — 4\n\nInorganic Chemistry:\n• Periodic Table — 6\n• Basic Inorganic Nomenclature — 2\n• Chemical Bonding — 17\n• S-Block — 3\n• P-Block (Boron & Carbon Family) — 4\n• Hydrogen — 1\n\nOrganic Chemistry:\n• IUPAC — 12\n• Structural ID & POC — 7\n• GOC-I — 7\n• GOC-II — 7\n• Hydrocarbon — 9\n• Environmental Chemistry — 2`},
+
+  maths:{k:['maths lecture','maths chapter','math chapter','mathematics lecture','how many maths','maths me','math topic'],a:`Mathematics — 113 Total Lectures:\n\n• Sets — 4\n• Fundamentals of Mathematics — 20\n• Quadratic Equation — 10\n• Trigonometry — 12\n• Sequence and Series — 9\n• Binomial Theorem — 10\n• Permutation & Combination — 9\n• Straight Line — 9\n• Circle — 9\n• Solution of Triangle — 6\n• Conic Section — 12\n• Statistics — 3`},
+
+  syllabus:{k:['syllabus','topic','chapter','subject','cover','pcm','all chapter','all topic'],a:`Complete XI JEE syllabus — 397 total lectures:\n\n⚡ Physics — 136 lectures\n⚗️ Chemistry — 148 lectures\n📐 Maths — 113 lectures\n\nAsk me:\n• "Physics chapters" — full chapterwise list\n• "Chemistry chapters" — full chapterwise list\n• "Maths chapters" — full chapterwise list`},
+
+  rbd:{k:['rbd','rigid body','rigid body dynamics'],a:`Rigid Body Dynamics (RBD) — 15 lectures\nThis is the highest lecture count in Physics!\n\nIt's part of the Physics module (136 total lectures).`},
+  atomic:{k:['atomic','atomic structure'],a:`Atomic Structure — 16 lectures\nHighest lecture count in Chemistry!\n\nIt's part of the Physical Chemistry section (148 total lectures).`},
+  fundamental:{k:['fundamental','fundamentals of math','fundamental of mathematics'],a:`Fundamentals of Mathematics — 20 lectures\nHighest lecture count in Maths!\n\nIt's part of the Mathematics module (113 total lectures).`},
+  bonding:{k:['bonding','chemical bonding'],a:`Chemical Bonding — 17 lectures\nIt's in the Inorganic Chemistry section.\n\nPart of Chemistry (148 total lectures).`},
+
   features:{k:['feature','include','benefit','offer','get','has'],a:`Pratham's 8 key features:\n\n1. Theory lectures (basic → advanced)\n2. Graded exhaustive study material\n3. DPPs with solutions\n4. Live Zoom doubt classes (daily) + 24x7 Telegram\n5. Tests with complete analysis\n6. Physical copy of materials posted to you\n7. Live strategy interaction classes\n8. Total support & information`},
   eligible:{k:['eligible','who','suitable','class 10','10th','for whom'],a:`Pratham is for Class X → XI students targeting JEE 2028.\n\nStart now if you:\n✅ Have finished Class X board prep\n✅ Want to start early & get ahead\n✅ Want a buffer against time lost later`},
   contact:{k:['contact','phone','number','enquiry','call','register','enroll','join','admission'],a:`To enquire or register:\n\n📞 8888-0000-21\n📞 7410-900-901\n📞 7410-900-906\n📞 7410-900-908\n\n🌐 i.competishun.com\n📱 Competishun App on Google Play`},
@@ -164,7 +154,7 @@ const KB={
   why:{k:['why','competishun','best','choose','better','reason'],a:`12 reasons to choose Competishun:\n\n1. Experienced faculty\n2. Authentic verified results\n3. Only study — zero distractions\n4. Disciplined: lectures→tests→revision→doubts\n5. Graded material — no book hunting\n6. Customisable study\n7. Dynamic response to changes\n8. One-stop solution\n9. Complete authentic guidance\n10. Effectiveness over popularity\n11. Support for BITSAT, Boards too\n12. Students-first approach`},
 };
 
-const CHIPS=['What is the fee?','Class schedule?','Topics covered?','How to contact?','Why Competishun?','Preparation tips?'];
+const CHIPS=['Physics chapters?','Chemistry chapters?','Maths chapters?','What is the fee?','How to contact?','Why Competishun?'];
 const el=document.getElementById('msgs');
 const inp=document.getElementById('uinput');
 
@@ -207,13 +197,13 @@ function send(){
   setTimeout(()=>{
     hideTyping();
     const a=getAns(txt);
-    addMsg(a||`I'm not sure about that. Our team will personally help!\n\n📞 8888-0000-21\n📞 7410-900-901\n\n🌐 i.competishun.com`,'bot');
+    addMsg(a||`I'm not sure about that. Try asking:\n• "Physics chapters"\n• "Chemistry chapters"\n• "Maths chapters"\n\nOr contact our team:\n📞 8888-0000-21\n🌐 i.competishun.com`,'bot');
   },800);
 }
 
 inp.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
 
-addMsg(`Hi! I'm your Pratham batch assistant by Competishun.\n\nAsk me anything about the JEE 2028 batch — fees, syllabus, schedule, features, and more!`,'bot',CHIPS);
+addMsg(`Hi! I'm your Pratham batch assistant.\n\nI can tell you about fees, syllabus, chapterwise lecture counts, schedule, features and more!\n\nWhat would you like to know?`,'bot',CHIPS);
 </script>
 </body>
 </html>
