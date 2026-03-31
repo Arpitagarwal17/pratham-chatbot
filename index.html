@@ -5,266 +5,215 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Pratham Bot — JEE 2028 Batch Assistant</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f4f8;display:flex;height:100vh;align-items:center;justify-content:center}
-  
-  .page-wrap{display:flex;width:100%;max-width:1100px;height:90vh;gap:24px;padding:0 24px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f4f8;min-height:100vh}
 
-  /* LEFT PANEL */
-  .left-panel{width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:16px}
-  .brand-card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:24px;text-align:center}
-  .brand-logo{width:64px;height:64px;border-radius:50%;background:#1D9E75;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;margin:0 auto 12px}
-  .brand-name{font-size:18px;font-weight:700;color:#1a202c;margin-bottom:4px}
-  .brand-sub{font-size:13px;color:#718096}
-  .badge{display:inline-block;background:#E1F5EE;color:#0F6E56;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;margin-top:10px}
+/* ── DESKTOP LAYOUT ── */
+.page{display:flex;height:100vh;gap:0}
 
-  .info-card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:20px}
-  .info-card h3{font-size:13px;font-weight:600;color:#718096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px}
-  .info-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
-  .info-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
-  .info-icon.green{background:#E1F5EE}
-  .info-icon.blue{background:#EBF8FF}
-  .info-icon.amber{background:#FFFBEB}
-  .info-label{font-size:11px;color:#a0aec0;margin-bottom:2px}
-  .info-value{font-size:13px;font-weight:600;color:#2d3748}
+.left{width:300px;flex-shrink:0;background:#f0f4f8;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+.right{flex:1;display:flex;flex-direction:column;background:#fff;min-width:0}
 
-  .topics-card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:20px;flex:1;overflow:hidden}
-  .topics-card h3{font-size:13px;font-weight:600;color:#718096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px}
-  .subject-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .subject-name{font-size:13px;color:#2d3748;font-weight:500}
-  .subject-bar-wrap{flex:1;margin:0 12px;height:6px;background:#f0f4f8;border-radius:3px;overflow:hidden}
-  .subject-bar{height:100%;border-radius:3px}
-  .bar-phy{background:#1D9E75;width:35%}
-  .bar-chem{background:#378ADD;width:38%}
-  .bar-math{background:#7F77DD;width:27%}
-  .subject-count{font-size:12px;font-weight:600;color:#718096;min-width:36px;text-align:right}
+/* cards */
+.card{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:20px}
+.brand-logo{width:58px;height:58px;border-radius:50%;background:#1D9E75;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;margin:0 auto 10px}
+.brand-name{font-size:17px;font-weight:700;color:#1a202c;text-align:center}
+.brand-sub{font-size:12px;color:#718096;text-align:center;margin-top:2px}
+.badge{display:inline-block;background:#E1F5EE;color:#0F6E56;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;margin-top:8px}
+.brand-card{text-align:center}
 
-  /* CHAT PANEL */
-  .chat-panel{flex:1;display:flex;flex-direction:column;background:#fff;border-radius:16px;border:1px solid #e2e8f0;overflow:hidden}
-  
-  .chat-header{background:linear-gradient(135deg,#1D9E75,#0F6E56);padding:16px 20px;display:flex;align-items:center;gap:14px;flex-shrink:0}
-  .header-avatar{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:#fff;flex-shrink:0}
-  .header-info{flex:1}
-  .header-name{font-size:16px;font-weight:600;color:#fff}
-  .header-status{font-size:12px;color:rgba(255,255,255,0.75);margin-top:2px}
-  .status-dot{display:inline-block;width:7px;height:7px;background:#4ade80;border-radius:50%;margin-right:5px}
-  .header-tag{background:rgba(255,255,255,0.15);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px}
+.sec-title{font-size:11px;font-weight:600;color:#a0aec0;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px}
+.info-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.iicon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ig{background:#E1F5EE}.ib{background:#EBF8FF}.ia{background:#FFFBEB}
+.ilabel{font-size:11px;color:#a0aec0}
+.ival{font-size:13px;font-weight:600;color:#2d3748}
 
-  .messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;background:#f8fafc}
-  .messages::-webkit-scrollbar{width:4px}
-  .messages::-webkit-scrollbar-thumb{background:#cbd5e0;border-radius:2px}
+.subj-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.subj-name{font-size:13px;color:#2d3748;font-weight:500;width:72px;flex-shrink:0}
+.bar-wrap{flex:1;height:6px;background:#f0f4f8;border-radius:3px;overflow:hidden}
+.bar{height:100%;border-radius:3px}
+.bp{background:#1D9E75;width:35%}.bc{background:#378ADD;width:38%}.bm{background:#7F77DD;width:29%}
+.subj-num{font-size:12px;font-weight:600;color:#718096;width:28px;text-align:right}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding-top:12px;margin-top:4px;border-top:1px solid #f0f4f8}
+.total-label{font-size:12px;color:#718096}
+.total-num{font-size:20px;font-weight:700;color:#1D9E75}
 
-  .msg{max-width:75%;display:flex;flex-direction:column;gap:4px}
-  .msg.bot{align-self:flex-start}
-  .msg.user{align-self:flex-end}
-  .bubble{padding:12px 16px;border-radius:14px;font-size:14px;line-height:1.6;white-space:pre-wrap}
-  .msg.bot .bubble{background:#fff;border:1px solid #e2e8f0;border-bottom-left-radius:4px;color:#2d3748}
-  .msg.user .bubble{background:#1D9E75;border-bottom-right-radius:4px;color:#fff}
-  .msg-time{font-size:11px;color:#a0aec0}
-  .msg.user .msg-time{text-align:right}
+/* CHAT */
+.chat-header{background:#1D9E75;padding:14px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.h-avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
+.h-name{font-size:15px;font-weight:600;color:#fff}
+.h-status{font-size:12px;color:rgba(255,255,255,0.8);margin-top:1px}
+.h-dot{display:inline-block;width:7px;height:7px;background:#4ade80;border-radius:50%;margin-right:4px}
+.h-tag{margin-left:auto;background:rgba(255,255,255,0.18);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;white-space:nowrap}
 
-  .quick-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-  .chip{font-size:12px;padding:6px 12px;border-radius:20px;border:1px solid #1D9E75;color:#0F6E56;background:#fff;cursor:pointer;transition:all 0.15s;font-family:inherit}
-  .chip:hover{background:#E1F5EE;transform:translateY(-1px)}
+.messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f8fafc}
+.messages::-webkit-scrollbar{width:4px}
+.messages::-webkit-scrollbar-thumb{background:#cbd5e0;border-radius:2px}
 
-  .typing{display:flex;gap:5px;align-items:center;padding:12px 16px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;border-bottom-left-radius:4px;width:fit-content}
-  .dot{width:7px;height:7px;border-radius:50%;background:#cbd5e0;animation:blink 1.2s infinite}
-  .dot:nth-child(2){animation-delay:0.2s}
-  .dot:nth-child(3){animation-delay:0.4s}
-  @keyframes blink{0%,80%,100%{opacity:0.3}40%{opacity:1}}
+.msg{max-width:78%;display:flex;flex-direction:column;gap:3px}
+.msg.bot{align-self:flex-start}
+.msg.user{align-self:flex-end}
+.bubble{padding:11px 15px;border-radius:14px;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+.msg.bot .bubble{background:#fff;border:1px solid #e2e8f0;border-bottom-left-radius:4px;color:#2d3748}
+.msg.user .bubble{background:#1D9E75;border-bottom-right-radius:4px;color:#fff}
+.msg-time{font-size:11px;color:#a0aec0}
+.msg.user .msg-time{text-align:right}
 
-  .input-area{padding:14px 16px;border-top:1px solid #e2e8f0;display:flex;gap:10px;align-items:center;background:#fff;flex-shrink:0}
-  .input-wrap{flex:1;display:flex;align-items:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:24px;padding:0 16px;gap:8px;transition:border-color 0.2s}
-  .input-wrap:focus-within{border-color:#1D9E75;background:#fff}
-  #user-input{flex:1;border:none;background:transparent;font-size:14px;color:#2d3748;outline:none;padding:10px 0;font-family:inherit}
-  #user-input::placeholder{color:#a0aec0}
-  #send-btn{width:42px;height:42px;border-radius:50%;background:#1D9E75;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s,transform 0.1s}
-  #send-btn:hover{background:#0F6E56}
-  #send-btn:active{transform:scale(0.94)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{font-size:12px;padding:5px 11px;border-radius:20px;border:1px solid #1D9E75;color:#0F6E56;background:#fff;cursor:pointer;font-family:inherit;transition:background 0.15s}
+.chip:hover{background:#E1F5EE}
 
-  .footer-note{font-size:11px;color:#a0aec0;text-align:center;padding:8px 0 0;flex-shrink:0}
+.typing-wrap{display:flex;gap:5px;padding:11px 15px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;border-bottom-left-radius:4px;width:fit-content}
+.dot{width:7px;height:7px;border-radius:50%;background:#cbd5e0;animation:blink 1.2s infinite}
+.dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
+
+.input-area{padding:12px 14px;border-top:1px solid #e2e8f0;display:flex;gap:10px;align-items:center;background:#fff;flex-shrink:0}
+.input-wrap{flex:1;display:flex;align-items:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:24px;padding:0 14px;transition:border-color .2s}
+.input-wrap:focus-within{border-color:#1D9E75;background:#fff}
+#uinput{flex:1;border:none;background:transparent;font-size:14px;color:#2d3748;outline:none;padding:10px 0;font-family:inherit}
+#uinput::placeholder{color:#a0aec0}
+#sbtn{width:40px;height:40px;border-radius:50%;background:#1D9E75;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+#sbtn:hover{background:#0F6E56}
+#sbtn:active{transform:scale(0.94)}
+.footer{font-size:11px;color:#a0aec0;text-align:center;padding:6px 0;background:#fff;flex-shrink:0}
+
+/* ── MOBILE LAYOUT ── */
+@media(max-width:700px){
+  body{background:#f0f4f8}
+  .page{flex-direction:column;height:auto;min-height:100vh}
+  .left{width:100%;padding:12px;flex-direction:row;flex-wrap:wrap;gap:10px;overflow:visible}
+  .left .card{flex:1;min-width:140px}
+  .brand-card{min-width:100%;order:-1}
+  .brand-logo{width:44px;height:44px;font-size:18px}
+  .brand-name{font-size:15px}
+  .right{flex:1;min-height:520px;border-radius:14px;margin:0 12px 12px;overflow:hidden;border:1px solid #e2e8f0}
+  .h-tag{display:none}
+  .msg{max-width:88%}
+}
 </style>
 </head>
 <body>
+<div class="page">
 
-<div class="page-wrap">
-
-  <!-- LEFT PANEL -->
-  <div class="left-panel">
-    <div class="brand-card">
+  <!-- LEFT -->
+  <div class="left">
+    <div class="card brand-card">
       <div class="brand-logo">P</div>
       <div class="brand-name">PRATHAM</div>
       <div class="brand-sub">Competishun — JEE 2028</div>
-      <div class="badge">X → XI Moving Students</div>
+      <div><span class="badge">X → XI Moving Students</span></div>
     </div>
 
-    <div class="info-card">
-      <h3>Batch Details</h3>
-      <div class="info-row">
-        <div class="info-icon green">💰</div>
-        <div>
-          <div class="info-label">Course Fee</div>
-          <div class="info-value">₹26,900/-</div>
-        </div>
-      </div>
-      <div class="info-row">
-        <div class="info-icon blue">📅</div>
-        <div>
-          <div class="info-label">Access Till</div>
-          <div class="info-value">31st March 2027</div>
-        </div>
-      </div>
-      <div class="info-row">
-        <div class="info-icon amber">🕐</div>
-        <div>
-          <div class="info-label">Class Frequency</div>
-          <div class="info-value">3–4 days/week</div>
-        </div>
-      </div>
-      <div class="info-row">
-        <div class="info-icon green">📞</div>
-        <div>
-          <div class="info-label">Enquiry</div>
-          <div class="info-value">8888-0000-21</div>
-        </div>
-      </div>
+    <div class="card">
+      <div class="sec-title">Batch Details</div>
+      <div class="info-row"><div class="iicon ig">💰</div><div><div class="ilabel">Course Fee</div><div class="ival">₹26,900/-</div></div></div>
+      <div class="info-row"><div class="iicon ib">📅</div><div><div class="ilabel">Access Till</div><div class="ival">31st March 2027</div></div></div>
+      <div class="info-row"><div class="iicon ia">🕐</div><div><div class="ilabel">Class Frequency</div><div class="ival">3–4 days/week</div></div></div>
+      <div class="info-row"><div class="iicon ig">📞</div><div><div class="ilabel">Enquiry</div><div class="ival">8888-0000-21</div></div></div>
     </div>
 
-    <div class="topics-card">
-      <h3>Lecture Distribution</h3>
-      <div class="subject-row">
-        <span class="subject-name">Physics</span>
-        <div class="subject-bar-wrap"><div class="subject-bar bar-phy"></div></div>
-        <span class="subject-count">136</span>
-      </div>
-      <div class="subject-row">
-        <span class="subject-name">Chemistry</span>
-        <div class="subject-bar-wrap"><div class="subject-bar bar-chem"></div></div>
-        <span class="subject-count">148</span>
-      </div>
-      <div class="subject-row">
-        <span class="subject-name">Maths</span>
-        <div class="subject-bar-wrap"><div class="subject-bar bar-math"></div></div>
-        <span class="subject-count">113</span>
-      </div>
-      <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f4f8;display:flex;justify-content:space-between;align-items:center">
-        <span style="font-size:12px;color:#718096">Total lectures</span>
-        <span style="font-size:18px;font-weight:700;color:#1D9E75">397</span>
-      </div>
+    <div class="card">
+      <div class="sec-title">Lecture Distribution</div>
+      <div class="subj-row"><span class="subj-name">Physics</span><div class="bar-wrap"><div class="bar bp"></div></div><span class="subj-num">136</span></div>
+      <div class="subj-row"><span class="subj-name">Chemistry</span><div class="bar-wrap"><div class="bar bc"></div></div><span class="subj-num">148</span></div>
+      <div class="subj-row"><span class="subj-name">Maths</span><div class="bar-wrap"><div class="bar bm"></div></div><span class="subj-num">113</span></div>
+      <div class="total-row"><span class="total-label">Total lectures</span><span class="total-num">397</span></div>
     </div>
   </div>
 
-  <!-- CHAT PANEL -->
-  <div class="chat-panel">
+  <!-- RIGHT: CHAT -->
+  <div class="right">
     <div class="chat-header">
-      <div class="header-avatar">P</div>
-      <div class="header-info">
-        <div class="header-name">Pratham Bot</div>
-        <div class="header-status"><span class="status-dot"></span>Online — Ask me anything</div>
+      <div class="h-avatar">P</div>
+      <div>
+        <div class="h-name">Pratham Bot</div>
+        <div class="h-status"><span class="h-dot"></span>Online — Ask me anything</div>
       </div>
-      <div class="header-tag">JEE 2028 Assistant</div>
+      <div class="h-tag">JEE 2028 Assistant</div>
     </div>
 
-    <div class="messages" id="messages"></div>
+    <div class="messages" id="msgs"></div>
 
     <div class="input-area">
       <div class="input-wrap">
-        <input id="user-input" type="text" placeholder="Ask about fees, syllabus, schedule, features..."/>
+        <input id="uinput" type="text" placeholder="Ask about fees, syllabus, schedule..."/>
       </div>
-      <button id="send-btn" onclick="sendMsg()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <button id="sbtn" onclick="send()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
     </div>
-    <div class="footer-note">Powered by Competishun · i.competishun.com</div>
+    <div class="footer">Powered by Competishun · i.competishun.com</div>
   </div>
-
 </div>
 
 <script>
-const KB = {
-  fee:{keywords:['fee','fees','cost','price','charges','kitna','kitne','how much'],answer:`The Pratham batch fee is ₹26,900/- (one-time payment).\n\nThis covers the complete XI JEE syllabus including:\n• All recorded lectures\n• Study materials + DPPs\n• Tests with analysis\n• Daily doubt sessions\n• Physical copy of materials`},
-  access:{keywords:['access','validity','expire','till','until','kab tak','how long'],answer:`Batch access is valid until 31st March 2027.\n\nThat gives you a full year+ to learn, revise and practice at your own pace — no rush!`},
-  schedule:{keywords:['schedule','class','timing','frequency','days','per week','lecture','time'],answer:`Class schedule:\n• 3–4 days per week\n• 3 subjects per cycle (Physics, Chemistry, Maths)\n• 1.5 hours per session\n\nAll lectures are scheduled and recorded, so you can watch anytime.`},
-  syllabus:{keywords:['syllabus','topic','chapter','subject','cover','pcm','physics','chemistry','maths','math'],answer:`Pratham covers the complete XI JEE syllabus:\n\n⚡ Physics — 136 lectures\nMechanics, SHM, Fluids, Waves, Thermodynamics & more\n\n⚗️ Chemistry — 148 lectures\nPhysical, Inorganic & Organic Chemistry\n\n📐 Maths — 113 lectures\nSets, Trigonometry, Sequences, Conic Sections & more\n\nTotal: 397 lectures across PCM.`},
-  features:{keywords:['feature','include','benefit','what get','offer','provides','course has'],answer:`Pratham's 8 key features:\n\n1. Theory lectures — basic to advanced\n2. Graded exhaustive study material\n3. DPPs with solutions for daily revision\n4. Live doubt classes (daily Zoom) + 24x7 Telegram\n5. Relevant tests with complete analysis\n6. Physical copy of all materials posted to you\n7. Live interaction classes for strategy\n8. Total support & information`},
-  eligible:{keywords:['eligible','who','suitable','class 10','10th','x student','xi','for whom','target'],answer:`Pratham is designed for students moving from Class X → Class XI targeting JEE 2028.\n\nStart now if you:\n✅ Have finished your Class X board prep\n✅ Want to start early & stay ahead\n✅ Want to experience JEE prep before it gets intense\n✅ Want a buffer against time lost later`},
-  contact:{keywords:['contact','phone','number','enquiry','call','register','enroll','admission','join'],answer:`To enquire or register:\n\n📞 8888-0000-21\n📞 7410-900-901\n📞 7410-900-906\n📞 7410-900-908\n\n🌐 i.competishun.com\n📱 Download Competishun App on Google Play`},
-  doubt:{keywords:['doubt','question','ask','stuck','help','zoom','telegram','support'],answer:`Doubt support is comprehensive:\n\n• Daily Live Zoom doubt-clearing sessions\n• 24x7 Telegram group for quick queries\n• Live interaction classes for strategy guidance\n\nYou're never stuck — help is always available!`},
-  material:{keywords:['material','book','notes','physical','copy','dpp','study material'],answer:`All materials are provided — no hunting for books!\n\n• Digital material with text + video solutions\n• DPPs (Daily Practice Problems) with solutions\n• Physical printed copies shipped to your address\n• Graded difficulty — builds from basics to advanced`},
-  test:{keywords:['test','exam','mock','practice','analysis','assessment'],answer:`Regular practice tests are a core part of Pratham:\n\n• Scheduled tests throughout the course\n• Complete performance analysis after each test\n• Helps you track progress and fix weak areas\n\nDon't miss any test — attendance is key!`},
-  tips:{keywords:['tip','advice','dos','donts','do and','prepare','how to study','strategy','suggestion'],answer:`Key Do's from Competishun:\n✅ Be practical, not a perfectionist\n✅ Stay up-to-date with course pace\n✅ Study regularly & stay disciplined\n✅ Analyse every practice test\n✅ Make proper theory notebooks\n✅ Prioritise tasks when time is short\n✅ Sleep properly!\n\nKey Don'ts:\n❌ Don't compare yourself with others\n❌ Don't chase different books/materials\n❌ Don't neglect any one subject\n❌ Don't skip classes or tests\n❌ Don't give up on questions too quickly`},
-  why:{keywords:['why','competishun','best','good','choose','better','trust','reason'],answer:`12 reasons to choose Competishun:\n\n1. Experienced faculty & teaching methodology\n2. Authentic, verified results\n3. Only study — zero distractions\n4. Disciplined: lectures → tests → revision → doubts\n5. Graded material — no book hunting\n6. Customisable study for personalisation\n7. Dynamic response to uncertain situations\n8. One-stop solution\n9. Complete authentic guidance\n10. Effectiveness over popularity\n11. Support for BITSAT, Boards, WBJEE too\n12. Students-first approach`},
+const KB={
+  fee:{k:['fee','fees','cost','price','charges','kitna','how much'],a:`The Pratham batch fee is ₹26,900/- (one-time).\n\nIncludes:\n• All recorded lectures\n• Study materials + DPPs\n• Tests with full analysis\n• Daily doubt sessions\n• Physical copy of materials`},
+  access:{k:['access','validity','expire','till','until','kab tak','how long'],a:`Batch access is valid until 31st March 2027.\n\nOver a full year to learn, revise and practice at your own pace!`},
+  schedule:{k:['schedule','class','timing','frequency','days','per week','time'],a:`Class schedule:\n• 3–4 days per week\n• Physics, Chemistry & Maths — 1.5 hrs each\n\nAll lectures are scheduled & recorded — watch anytime!`},
+  syllabus:{k:['syllabus','topic','chapter','subject','cover','pcm','physics','chemistry','maths'],a:`Complete XI JEE syllabus:\n\n⚡ Physics — 136 lectures\nMechanics, SHM, Fluids, Waves, Thermodynamics\n\n⚗️ Chemistry — 148 lectures\nPhysical, Inorganic & Organic\n\n📐 Maths — 113 lectures\nSets, Trigonometry, Sequences, Conic Sections\n\nTotal: 397 lectures`},
+  features:{k:['feature','include','benefit','offer','get','has'],a:`Pratham's 8 key features:\n\n1. Theory lectures (basic → advanced)\n2. Graded exhaustive study material\n3. DPPs with solutions\n4. Live Zoom doubt classes (daily) + 24x7 Telegram\n5. Tests with complete analysis\n6. Physical copy of materials posted to you\n7. Live strategy interaction classes\n8. Total support & information`},
+  eligible:{k:['eligible','who','suitable','class 10','10th','for whom'],a:`Pratham is for Class X → XI students targeting JEE 2028.\n\nStart now if you:\n✅ Have finished Class X board prep\n✅ Want to start early & get ahead\n✅ Want a buffer against time lost later`},
+  contact:{k:['contact','phone','number','enquiry','call','register','enroll','join','admission'],a:`To enquire or register:\n\n📞 8888-0000-21\n📞 7410-900-901\n📞 7410-900-906\n📞 7410-900-908\n\n🌐 i.competishun.com\n📱 Competishun App on Google Play`},
+  doubt:{k:['doubt','ask','stuck','help','zoom','telegram','support'],a:`Doubt support:\n\n• Daily Live Zoom doubt-clearing sessions\n• 24x7 Telegram group\n• Live interaction classes for strategy\n\nYou're never stuck — help is always available!`},
+  material:{k:['material','book','notes','physical','copy','dpp'],a:`All materials provided — no book hunting!\n\n• Digital material with text + video solutions\n• DPPs with solutions\n• Physical printed copies shipped to you\n• Graded difficulty (basics → advanced)`},
+  test:{k:['test','exam','mock','practice','analysis'],a:`Regular practice tests with complete performance analysis — track your progress and fix weak areas.\n\nDon't miss any test!`},
+  tips:{k:['tip','advice','dos','donts','strategy','how to study','prepare'],a:`Key Do's:\n✅ Be practical, not a perfectionist\n✅ Stay up-to-date with the course\n✅ Study regularly & stay disciplined\n✅ Analyse every practice test\n✅ Make proper notebooks\n✅ Sleep properly!\n\nKey Don'ts:\n❌ Don't compare yourself with others\n❌ Don't chase different books\n❌ Don't neglect any subject\n❌ Don't skip classes or tests`},
+  why:{k:['why','competishun','best','choose','better','reason'],a:`12 reasons to choose Competishun:\n\n1. Experienced faculty\n2. Authentic verified results\n3. Only study — zero distractions\n4. Disciplined: lectures→tests→revision→doubts\n5. Graded material — no book hunting\n6. Customisable study\n7. Dynamic response to changes\n8. One-stop solution\n9. Complete authentic guidance\n10. Effectiveness over popularity\n11. Support for BITSAT, Boards too\n12. Students-first approach`},
 };
 
-const CHIPS=['What is the fee?','Class schedule?','Topics covered?','How to contact?','Why Competishun?','Tips for JEE prep?'];
-
-const msgsEl=document.getElementById('messages');
-const inputEl=document.getElementById('user-input');
+const CHIPS=['What is the fee?','Class schedule?','Topics covered?','How to contact?','Why Competishun?','Preparation tips?'];
+const el=document.getElementById('msgs');
+const inp=document.getElementById('uinput');
 
 function now(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}
 
 function addMsg(text,role,chips){
-  const div=document.createElement('div');
-  div.className='msg '+role;
-  const bubble=document.createElement('div');
-  bubble.className='bubble';
-  bubble.textContent=text;
-  const time=document.createElement('div');
-  time.className='msg-time';
-  time.textContent=now();
-  div.appendChild(bubble);
-  div.appendChild(time);
-  if(chips&&chips.length){
-    const cc=document.createElement('div');
-    cc.className='quick-chips';
+  const d=document.createElement('div');d.className='msg '+role;
+  const b=document.createElement('div');b.className='bubble';b.textContent=text;
+  const t=document.createElement('div');t.className='msg-time';t.textContent=now();
+  d.appendChild(b);d.appendChild(t);
+  if(chips){
+    const cc=document.createElement('div');cc.className='chips';
     chips.forEach(c=>{
-      const ch=document.createElement('button');
-      ch.className='chip';ch.textContent=c;
-      ch.onclick=()=>{inputEl.value=c;sendMsg();};
-      cc.appendChild(ch);
+      const ch=document.createElement('button');ch.className='chip';ch.textContent=c;
+      ch.onclick=()=>{inp.value=c;send();};cc.appendChild(ch);
     });
-    div.appendChild(cc);
+    d.appendChild(cc);
   }
-  msgsEl.appendChild(div);
-  msgsEl.scrollTop=msgsEl.scrollHeight;
+  el.appendChild(d);el.scrollTop=el.scrollHeight;
 }
 
 function showTyping(){
-  const d=document.createElement('div');
-  d.className='msg bot';d.id='typ';
-  const b=document.createElement('div');
-  b.className='typing';
-  for(let i=0;i<3;i++){const dot=document.createElement('div');dot.className='dot';b.appendChild(dot);}
-  d.appendChild(b);msgsEl.appendChild(d);msgsEl.scrollTop=msgsEl.scrollHeight;
+  const d=document.createElement('div');d.className='msg bot';d.id='typ';
+  const w=document.createElement('div');w.className='typing-wrap';
+  for(let i=0;i<3;i++){const dot=document.createElement('div');dot.className='dot';w.appendChild(dot);}
+  d.appendChild(w);el.appendChild(d);el.scrollTop=el.scrollHeight;
 }
 function hideTyping(){const t=document.getElementById('typ');if(t)t.remove();}
 
-function getAnswer(q){
-  const lower=q.toLowerCase();
-  for(const key in KB){
-    if(KB[key].keywords.some(k=>lower.includes(k)))return KB[key].answer;
-  }
+function getAns(q){
+  const l=q.toLowerCase();
+  for(const k in KB){if(KB[k].k.some(w=>l.includes(w)))return KB[k].a;}
   return null;
 }
 
-function sendMsg(){
-  const text=inputEl.value.trim();
-  if(!text)return;
-  addMsg(text,'user');
-  inputEl.value='';
+function send(){
+  const txt=inp.value.trim();if(!txt)return;
+  addMsg(txt,'user');inp.value='';
   showTyping();
   setTimeout(()=>{
     hideTyping();
-    const ans=getAnswer(text);
-    if(ans){addMsg(ans,'bot');}
-    else{addMsg(`I'm not sure about that. Our team will personally assist you!\n\n📞 8888-0000-21\n📞 7410-900-901\n\n🌐 i.competishun.com`,'bot');}
+    const a=getAns(txt);
+    addMsg(a||`I'm not sure about that. Our team will personally help!\n\n📞 8888-0000-21\n📞 7410-900-901\n\n🌐 i.competishun.com`,'bot');
   },800);
 }
 
-inputEl.addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg();});
+inp.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
 
-addMsg(`Hi! I'm your Pratham batch assistant by Competishun.\n\nI can answer all your questions about the JEE 2028 batch — fees, syllabus, schedule, features, study material and more.\n\nWhat would you like to know?`,'bot',CHIPS);
+addMsg(`Hi! I'm your Pratham batch assistant by Competishun.\n\nAsk me anything about the JEE 2028 batch — fees, syllabus, schedule, features, and more!`,'bot',CHIPS);
 </script>
 </body>
 </html>
-
